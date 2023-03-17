@@ -1,7 +1,7 @@
-<template>
-  <input/>
-</template>
-
 <script>
-export default {}
+  export default {}
 </script>
+
+<template>
+  <input class="text-input"/>
+</template>

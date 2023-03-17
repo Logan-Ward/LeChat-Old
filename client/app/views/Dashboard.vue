@@ -1,14 +1,16 @@
 <script>
 import TextInput from '../components/TextInput.vue'
+import TextBox from '../components/TextBox.vue'
 
 export default {
-  name: 'dashboard',
+  name: 'Dashboard',
   components: {
-    TextInput
+    TextInput,
+    TextBox
   }
 };
 </script>
 
 <template>
-  <text-input/>
+  <text-box text="Enchanted"/>
 </template>

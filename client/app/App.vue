@@ -1,14 +1,16 @@
 <script>
 import Dashboard from './views/Dashboard.vue'
+import ChatRoom from './views/ChatRoom.vue'
 
 export default {
-   name: 'app',
+   name: 'App',
    components: {
-      Dashboard
+      Dashboard,
+      ChatRoom
    },
 }
 </script>
 
 <template>
-   <dashboard/>
+   <chat-room Topic="General"/>
 </template>
