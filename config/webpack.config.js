@@ -1,4 +1,5 @@
 const { VueLoaderPlugin } = require('vue-loader');
+const { DefinePlugin } = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -29,7 +30,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['vue-style-loader', 'css-loader'],
+        use: ['vue-style-loader', 'style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
@@ -48,15 +49,21 @@ module.exports = {
       },
     ],
   },
-  plugins: [new VueLoaderPlugin()],
+  plugins: [
+    new VueLoaderPlugin(), 
+    new DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: true,
+    })],
   resolve: {
     extensions: ['*', '.js', '.vue', '.json'],
     modules: ['node_modules']
   },
-  // devServer: {
-  //   port: 8080,
-  //   static: {
-  //     directory: path.join(__dirname, '../public'),
-  //   },
-  // },
+  devtool: 'inline-source-map',
+  devServer: {
+    port: 8080,
+    static: {
+      directory: path.join(__dirname, '../src/main/resources'),
+    },
+  },
 };

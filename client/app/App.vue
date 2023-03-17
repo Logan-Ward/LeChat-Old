@@ -1,5 +1,14 @@
+<script>
+import Dashboard from './views/Dashboard.vue'
+
+export default {
+   name: 'app',
+   components: {
+      Dashboard
+   },
+}
+</script>
+
 <template>
-  <div>
-   <h1>Hello Uganda!</h1>
-  </div>
+   <dashboard/>
 </template>
