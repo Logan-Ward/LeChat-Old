@@ -14,7 +14,10 @@ As a secondary goal, this application would likely be benefited
 either with the ability to set a centerpiece within the app to 
 stimulate and lead discussion, such as image, text, or video to be 
 commentated on, or by being modular enough in design to be grafted 
-onto existing applications as a supplementary form of interaction.
+onto existing applications as a supplementary form of interaction. 
+Another form of engagement could be a liking feature where users 
+can like a message which will grow its size and extend its 
+lifetime.
 
 ## Project setup
 ```

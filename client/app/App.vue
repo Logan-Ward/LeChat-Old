@@ -12,5 +12,6 @@ export default {
 </script>
 
 <template>
+   <h1>Enchant&eacute;e</h1>
    <chat-room Topic="General"/>
 </template>
