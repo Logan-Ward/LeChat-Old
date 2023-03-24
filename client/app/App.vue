@@ -1,17 +1,23 @@
 <script>
-import Dashboard from './views/Dashboard.vue'
-import ChatRoom from './views/ChatRoom.vue'
+import ChatBoard from './views/ChatBoard.vue';
+import Dashboard from './views/Dashboard.vue';
+import Sidebar from './views/Sidebar.vue';
 
 export default {
-   name: 'App',
-   components: {
-      Dashboard,
-      ChatRoom
-   },
+  name: 'App',
+  data() {
+    return {};
+  },
+  components: {
+    ChatBoard,
+    Dashboard,
+    Sidebar
+  },
 }
 </script>
 
 <template>
-   <h1>Enchant&eacute;e</h1>
-   <chat-room Topic="General"/>
+  <sidebar/>
+  <dashboard/>
+  <chat-board/>
 </template>

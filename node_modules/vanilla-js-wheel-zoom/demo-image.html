@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+    <title>worka/vanilla-js-wheel-zoom</title>
+
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        #myViewport {
+            cursor: grab;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container py-3">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <h1>vanilla-js-wheel-zoom</h1>
+
+            <p class="lead mb-4" style="word-wrap:break-word">
+                <a href="https://github.com/worka/vanilla-js-wheel-zoom">
+                    https://github.com/worka/vanilla-js-wheel-zoom
+                </a>
+            </p>
+
+            <div class="d-flex my-3">
+                <div>
+                    <button data-max-zoom-down class="btn btn-info">Max Down</button>
+                    <button data-zoom-down class="btn btn-info">Zoom Down</button>
+                </div>
+
+                <div class="ml-auto">
+                    <button data-zoom-up class="btn btn-info">Zoom Up</button>
+                    <button data-max-zoom-up class="btn btn-info">Max Up</button>
+                </div>
+            </div>
+
+            <div class="embed-responsive embed-responsive-4by3 rounded bg-secondary">
+                <div id="myViewport" class="embed-responsive-item">
+                    <img id="myContent" src="https://worka.github.io/files/wheel_zoom_example.jpg" alt="image"/>
+                </div>
+            </div>
+
+            <div class="d-flex my-3">
+                <button data-destroy class="btn btn-info">Destroy</button>
+                <button data-change-image class="btn btn-info ml-auto">Change image</button>
+            </div>
+
+            <div class="d-flex my-3">Move your mouse over the image and scroll/wheelzoom to zoom in and out.</div>
+        </div>
+    </div>
+</div>
+
+<script src="dist/wheel-zoom.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var frame = document.getElementById('myViewport');
+        var image = document.getElementById('myContent');
+
+        var zoomUpButton = document.querySelector('[data-zoom-up]');
+        var maxZoomUpButton = document.querySelector('[data-max-zoom-up]');
+        var zoomDownButton = document.querySelector('[data-zoom-down]');
+        var maxZoomDownButton = document.querySelector('[data-max-zoom-down]');
+        var destroyButton = document.querySelector('[data-destroy]');
+        var changeImageButton = document.querySelector('[data-change-image]');
+
+        var imagesStore = [
+            'https://worka.github.io/files/wheel_zoom_example_2.jpg',
+            'https://worka.github.io/files/wheel_zoom_example_3.jpg',
+            'https://worka.github.io/files/wheel_zoom_example_4.jpg',
+            image.src,
+        ];
+
+        var wzoom = WZoom.create('#myContent', {
+            dragScrollableOptions: {
+                onGrab: function () {
+                    frame.style.cursor = 'grabbing';
+                },
+                onDrop: function () {
+                    frame.style.cursor = 'grab';
+                }
+            }
+        });
+
+        zoomUpButton.addEventListener('click', function () {
+            wzoom.zoomUp();
+        });
+
+        maxZoomUpButton.addEventListener('click', function () {
+            wzoom.maxZoomUp();
+        });
+
+        zoomDownButton.addEventListener('click', function () {
+            wzoom.zoomDown();
+        });
+
+        maxZoomDownButton.addEventListener('click', function () {
+            wzoom.maxZoomDown();
+        });
+
+        destroyButton.addEventListener('click', function () {
+            wzoom.destroy();
+            wzoom = null;
+
+            this.remove();
+
+            zoomUpButton.remove();
+            maxZoomUpButton.remove();
+            zoomDownButton.remove();
+            maxZoomDownButton.remove();
+            changeImageButton.remove();
+        });
+
+        changeImageButton.addEventListener('click', function () {
+            changeImageButton.innerHTML = 'Loading...';
+
+            var newImagePath = imagesStore.shift();
+            imagesStore.push(newImagePath);
+
+            image.addEventListener('load', function () {
+                changeImageButton.innerHTML = 'Change image';
+                wzoom.prepare();
+            }, { once: true });
+
+            image.src = newImagePath;
+        });
+
+        window.addEventListener('resize', function () {
+            if (wzoom) wzoom.prepare();
+        });
+    });
+</script>
+</body>
+</html>

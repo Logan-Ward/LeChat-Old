@@ -2,28 +2,28 @@
 
 <script>
 import TextInput from '../components/TextInput.vue'
-import TextBox from '../components/TextBox.vue'
+import ChatBox from '../components/ChatBox.vue'
 
 export default {
-  name: 'Dashboard',
+  name: 'ChatRoom',
   data() {
     return {
-      Chats: this.CurrentChats || []
+      Chats: [],
     }
   },
   methods: {
     sendChat(e) {
-      this.Chats.push(e.target.value)
+      this.Chats.push({text: e.target.value});
+      this.Chats = this.Chats.slice();
       e.target.value = '';
-    }
+    },
   },
   props: {
     Topic: {required: true, type: String},
-    CurrentChats: {required: false, type: Array},
   },
   components: {
     TextInput,
-    TextBox,
+    ChatBox,
   }
 };
 </script>
@@ -32,7 +32,7 @@ export default {
   <section class="chat-room">
     <h2 class="room-title">{{ Topic }}</h2>
     <div class="chat-messages">
-      <text-box v-for="Chat in Chats" :key="JSON.stringify(Chat)" :text="Chat"/>
+      <chat-box v-for="Chat in Chats" :key="JSON.stringify(Chat)" :text="Chat.text"/>
     </div>
     <text-input class="chat-text-input" @keyup.enter.prevent="sendChat"/>
   </section>
