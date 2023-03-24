@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-  <sidebar/>
   <dashboard/>
+  <sidebar :PrevChatRooms="[{title: 'sad'}, {title: 'happy'}]"/>
   <chat-board/>
 </template>

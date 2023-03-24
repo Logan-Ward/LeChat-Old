@@ -28,7 +28,7 @@ export default {
 
     win.addEventListener('wheel', wheelAction);
 
-    gsap.set(win, { scale: zoom.value, transformOrigin: 'left top', transform: "translate3d(-100px, -100px, 0px)" });
+    gsap.set(win, { scale: zoom.value, transformOrigin: 'left top', transform: "translate3d(-107px, -106px, 0px)"});
 
     let props = gsap.getProperty(win);
 
@@ -111,6 +111,7 @@ export default {
 <template>
   <main id="boundary" class="drag-boundary">
     <div id="win" class="chat-board">
+      <chat-room Topic="General" />
       <chat-room Topic="General" />
       <chat-room Topic="General" />
       <chat-room Topic="General" />
