@@ -21,17 +21,25 @@ export default {
   props: {
     Topic: {required: true, type: String},
   },
+  watch: {
+    Chats(newChats, oldChats) {
+      setTimeout(() => {
+        let messages = document.getElementById(this.Topic);
+        messages.scrollTop = messages.scrollHeight;
+      })
+    }
+  },
   components: {
     TextInput,
     ChatBox,
-  }
+  },
 };
 </script>
 
 <template>
   <section class="chat-room">
     <h2 class="room-title">{{ Topic }}</h2>
-    <div class="chat-messages">
+    <div class="chat-messages" :id="this.Topic">
       <chat-box v-for="Chat in Chats" :key="JSON.stringify(Chat)" :text="Chat.text"/>
     </div>
     <text-input class="chat-text-input" @keyup.enter.prevent="sendChat"/>
