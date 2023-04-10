@@ -19,7 +19,7 @@ export default {
     let boundary = document.getElementById('boundary')
 
     let zoom = {
-      value: 1,
+      value: .6,
       min: .6,
       max: 2,
       step: 1,
@@ -28,7 +28,7 @@ export default {
 
     win.addEventListener('wheel', wheelAction);
 
-    gsap.set(win, { scale: zoom.value, transformOrigin: 'left top', transform: "translate3d(-107px, -106px, 0px)"});
+    gsap.set(win, { scale: zoom.value, transformOrigin: 'left top'});
 
     let props = gsap.getProperty(win);
 
@@ -37,6 +37,7 @@ export default {
       minimumMovement: 10,
       allowEventDefault: true,
       overshootTolerance: 0,
+      dragClickables: false,
     });
 
     setBounds();
