@@ -17,9 +17,17 @@ body {
     "sidebar main";
 }
 
+li {
+  list-style-type: none;
+}
+
 .dashboard {
   grid-area: dashboard;
   border-bottom: 2px solid white;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
+  height: 10vh;
 }
 
 .sidebar {
@@ -34,8 +42,54 @@ body {
 /* Dashboard Styling Section */
 
 h1 {
-  font-size: max(3vh)
+  margin: 0px;
+  padding: 0px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 1rem;
 }
+
+.search {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+}
+
+.result-list {
+  width: min(45vw, 20rem);
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc(calc(5vh) - 1rem);
+  position: relative;
+  z-index: 1;
+}
+
+.search-item {
+  width: min(45vw, 20rem);
+  height: 1.6rem;
+}
+
+.search-text-input {
+  box-sizing: border-box;
+  height: inherit;
+  width: inherit;
+  margin-bottom: 2px;
+  border: none;
+  border-bottom: 2px solid black;
+  padding: 0px;
+}
+
+.result-item {
+  border-bottom: 2px solid black;
+  padding: 0px;
+  margin: 0px;
+  color: black;
+  background-color:white;
+  height: 1.6rem;
+} 
 
 /* Sidebar Styling Section */
 
@@ -62,7 +116,6 @@ h1 {
 }
 
 .sidebar-item {
-  list-style-type: none;
   border-bottom: 2px solid white;
   padding: 4px;
 }
