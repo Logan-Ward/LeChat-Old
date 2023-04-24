@@ -1,4 +1,4 @@
-# Enchantee
+# LeChat
 
 WIP
 A discussion app that lets you engage with multiple conversations simultaneously. 
