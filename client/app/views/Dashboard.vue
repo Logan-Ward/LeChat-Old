@@ -24,7 +24,7 @@ export default {
     <div class="search">
       <ul class="result-list">
         <li class="search-item">
-          <text-input class="search-text-input" @keyup.enter.prevent="search" @focus="searching = false" @blur="searching=true" />
+          <text-input class="search-text-input" @keyup.enter.prevent="search" @focus="searching = false" @blur="searching=true" placeholder="Search for discussions"/>
         </li>
         <li
           class="result-item"

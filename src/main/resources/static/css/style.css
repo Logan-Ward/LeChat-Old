@@ -80,11 +80,13 @@ h1 {
   border: none;
   border-bottom: 2px solid black;
   padding: 0px;
+  padding-left: 4px;
 }
 
 .result-item {
   border-bottom: 2px solid black;
-  padding: 0px;
+  padding-top: 6px;
+  padding-left: 4px;
   margin: 0px;
   color: black;
   background-color:white;

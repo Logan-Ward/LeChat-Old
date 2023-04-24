@@ -42,6 +42,6 @@ export default {
     <div class="chat-messages" :id="this.Topic">
       <chat-box v-for="Chat in Chats" :key="JSON.stringify(Chat)" :text="Chat.text"/>
     </div>
-    <text-input class="chat-text-input" @keyup.enter.prevent="sendChat"/>
+    <text-input class="chat-text-input" @keyup.enter.prevent="sendChat" placeholder="Type message here"/>
   </section>
 </template>
