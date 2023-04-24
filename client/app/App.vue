@@ -8,6 +8,8 @@ export default {
   data() {
     return {};
   },
+  methods: {
+  },
   components: {
     ChatBoard,
     Dashboard,
@@ -18,6 +20,6 @@ export default {
 
 <template>
   <dashboard/>
-  <sidebar :PrevChatRooms="[{title: 'sad'}, {title: 'happy'}]"/>
+  <sidebar />
   <chat-board/>
 </template>
