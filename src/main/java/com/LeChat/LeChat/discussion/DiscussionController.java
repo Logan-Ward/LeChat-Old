@@ -1,9 +1,6 @@
-package com.LeChat.LeChat.controller;
+package com.LeChat.LeChat.discussion;
 
 import java.util.List;
-
-import com.LeChat.LeChat.model.Discussion;
-import com.LeChat.LeChat.service.IDiscussionService;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,18 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
-public class LeChatController {
+public class DiscussionController {
   
-  private final IDiscussionService discussionService;
+  private final DiscussionService discussionService;
   
-  public LeChatController(IDiscussionService discussionService) {
+  public DiscussionController(DiscussionService discussionService) {
     this.discussionService = discussionService;
   }
 
   @RequestMapping(value = "/discussions", method = RequestMethod.GET)
   public ResponseEntity<List<Discussion>> getDiscussions() {
-    System.out.println("arrived");
+    // discussionService.addDiscussion(new Discussion("asjvbskjc", "ajkbdcjcnjcjncsdnjkc", new String[] { "aol", "john", "doe" }));
+    // discussionService.addDiscussion(new Discussion("bsjvbskjc", "bjkbdcjcnjcjncsdnjkc", new String[] { "bol", "john", "doe" }));
+    // discussionService.addDiscussion(new Discussion("csjvbskjc", "cjkbdcjcnjcjncsdnjkc", new String[] { "col", "john", "doe" }));
     return discussionService.findAll();
   }
   
