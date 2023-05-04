@@ -4,10 +4,10 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, '../client/index.js'),
+    main: path.resolve(__dirname, '../client/main.js'),
   },
   output: {
-    path: path.resolve(__dirname, '../src/main/resources/static'),
+    path: path.resolve(__dirname, '../built'),
     filename: 'bundle.js',
     publicPath: '/',
   },
@@ -59,11 +59,11 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json'],
     modules: ['node_modules']
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    port: 8080,
-    static: {
-      directory: path.join(__dirname, '../src/main/resources'),
-    },
-  },
+  // devtool: 'inline-source-map',
+  // devServer: {
+  //   port: 8080,
+  //   static: {
+  //     directory: path.join(__dirname, '../built'),
+  //   },
+  // },
 };

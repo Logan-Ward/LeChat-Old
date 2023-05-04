@@ -1,7 +1,5 @@
 <script>
-import ChatBoard from './views/ChatBoard.vue';
-import Dashboard from './views/Dashboard.vue';
-import Sidebar from './views/Sidebar.vue';
+import Dashboard from './components/Dashboard.vue';
 
 export default {
   name: 'App',
@@ -11,15 +9,12 @@ export default {
   methods: {
   },
   components: {
-    ChatBoard,
     Dashboard,
-    Sidebar
   },
 }
 </script>
 
 <template>
   <dashboard/>
-  <sidebar />
-  <chat-board/>
+  <router-view></router-view>
 </template>
