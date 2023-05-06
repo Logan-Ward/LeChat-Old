@@ -1,3 +1,4 @@
+<!-- am visible? -->
 <script>
 import Dashboard from './components/Dashboard.vue';
 

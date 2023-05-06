@@ -7,7 +7,7 @@ module.exports = {
     main: path.resolve(__dirname, '../client/main.js'),
   },
   output: {
-    path: path.resolve(__dirname, '../built'),
+    path: path.resolve(__dirname, '../build'),
     filename: 'bundle.js',
     publicPath: '/',
   },
@@ -59,11 +59,5 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json'],
     modules: ['node_modules']
   },
-  // devtool: 'inline-source-map',
-  // devServer: {
-  //   port: 8080,
-  //   static: {
-  //     directory: path.join(__dirname, '../built'),
-  //   },
-  // },
+  mode: 'production',
 };
